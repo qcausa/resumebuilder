@@ -28,7 +28,7 @@ Since this app is part of a Turborepo monorepo, run the following commands from 
 pnpm install
 
 # Start the development server for this app
-pnpm dev --filter resumebuilder
+pnpm dev
 ```
 
 Or with environment variables:
