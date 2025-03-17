@@ -1,28 +1,85 @@
-# Create T3 App
+# Professional Resume Builder
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A modern, feature-rich resume building application that helps users create, edit, and export professional resumes with multiple templates and advanced customization options.
 
-## What's next? How do I make an app with this?
+## 🌟 Features
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Multiple Professional Templates**: Choose from modern, professional, and creative templates
+- **Intuitive Form Interface**: Easily input your personal information, work experience, education, skills, and more
+- **Real-time Preview**: See changes to your resume instantly as you edit
+- **PDF Export**: Download your completed resume as a professional PDF document
+- **PDF Parsing**: Upload existing resume PDFs to automatically extract information
+- **Responsive Design**: Build your resume on any device with a fully responsive UI
+- **Data Persistence**: Your resume data is automatically saved as you work
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## 🚀 Getting Started
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Prerequisites
 
-## Learn More
+- Node.js 18+
+- pnpm (as this is part of a Turborepo monorepo)
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Running Locally
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Since this app is part of a Turborepo monorepo, run the following commands from the root of the repository:
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+```bash
+# Install dependencies
+pnpm install
 
-## How do I deploy this?
+# Start the development server for this app
+pnpm dev --filter resumebuilder
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Or with environment variables:
+
+```bash
+dotenv -e ../../.env -- "next" "dev"
+```
+
+Visit `http://localhost:3000` to start building your resume.
+
+## 🛠️ Technologies
+
+This application is built with:
+
+- [Next.js](https://nextjs.org) - React framework for server-rendered applications
+- [React](https://reactjs.org) - UI library
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com) - Reusable UI components
+- [Zustand](https://github.com/pmndrs/zustand) - State management
+- [pdf-parse](https://www.npmjs.com/package/pdf-parse) - PDF parsing library
+
+## 📁 Project Structure
+
+```
+resumebuilder/
+├── public/          # Static assets
+├── src/
+│   ├── app/         # Next.js app directory
+│   │   ├── _components/  # Shared components
+│   │   ├── api/     # API routes
+│   │   └── ...      # Page routes
+│   ├── components/  # Reusable components
+│   │   └── pdf/     # PDF handling components
+│   ├── lib/         # Utility functions
+│   ├── store/       # Zustand store
+│   └── ...
+└── ...
+```
+
+## 🧩 Main Components
+
+- **ResumeBuilder**: Main component orchestrating the resume building experience
+- **ResumePreview**: Live preview of the resume with template rendering
+- **TemplateSelector**: UI for selecting different resume templates
+- **PdfUploader**: Component for uploading and parsing existing resumes
+- **Form Components**: Specialized forms for each section of the resume
+
+## 📝 License
+
+[MIT](LICENSE)
+
+---
+
+This app is part of a larger monorepo project built with Turborepo.
