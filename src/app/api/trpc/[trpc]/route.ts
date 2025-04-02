@@ -1,6 +1,6 @@
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 
-import { appRouter, createTRPCContext } from "@acme/api";
+import { baseRouter, createTRPCContext } from "@acme/api";
 import { auth } from "@acme/auth";
 
 /**
@@ -25,12 +25,13 @@ export const OPTIONS = () => {
 const handler = auth(async (req) => {
   const response = await fetchRequestHandler({
     endpoint: "/api/trpc",
-    router: appRouter,
+    router: baseRouter,
     req,
     createContext: () =>
       createTRPCContext({
         session: req.auth,
         headers: req.headers,
+        db: null,
       }),
     onError({ error, path }) {
       console.error(`>>> tRPC Error on '${path}'`, error);
